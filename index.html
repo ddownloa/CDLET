@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>科目一英文题库 · 模拟考试</title>
+<meta name="description" content="科目一英文版模拟考试 - 100题随机测试，45分钟计时，自动评分">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ 顶部导航 ============ -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-mark">路</span>
+      <div class="brand-text">
+        <strong>科目一 · 英文题库</strong>
+        <small id="brandSub">模拟考试系统</small>
+      </div>
+    </div>
+
+    <div id="examMeta" class="exam-meta hidden">
+      <div class="meta-chip timer" id="timerChip">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 3h6"/></svg>
+        <span id="timerText">45:00</span>
+      </div>
+      <div class="meta-chip progress-chip">
+        <span id="progressText">0 / 100</span>
+      </div>
+      <button class="btn btn-ghost" id="sheetToggleBtn" type="button">答题卡</button>
+    </div>
+
+    <button class="icon-btn" id="darkToggle" title="切换深色模式" aria-label="切换深色模式">
+      <svg id="iconSun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg id="iconMoon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>
+    </button>
+  </div>
+  <div class="road-line" aria-hidden="true"></div>
+</header>
+
+<main id="app"></main>
+
+<!-- ============ 答题卡抽屉 (移动端 & 桌面侧栏共用) ============ -->
+<aside id="sheetDrawer" class="sheet-drawer">
+  <div class="sheet-header">
+    <strong>答题卡</strong>
+    <button class="icon-btn" id="sheetCloseBtn" aria-label="关闭">✕</button>
+  </div>
+  <div class="sheet-legend">
+    <span><i class="dot dot-answered"></i>已答</span>
+    <span><i class="dot dot-current"></i>当前</span>
+    <span><i class="dot dot-blank"></i>未答</span>
+  </div>
+  <div class="sheet-grid" id="sheetGrid"></div>
+  <button class="btn btn-primary btn-block" id="submitFromSheetBtn">交卷</button>
+</aside>
+<div id="sheetOverlay" class="sheet-overlay"></div>
+
+<script src="js/questions.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
